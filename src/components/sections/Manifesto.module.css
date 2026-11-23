@@ -1,0 +1,57 @@
+.section {
+    position: relative;
+    background: var(--night);
+}
+
+@media (min-width: 900px) {
+    .section {
+        height: 190vh;
+    }
+
+    .sticky {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.sticky {
+    padding: 6rem 0;
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+}
+
+.badge {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--brand);
+}
+
+.text {
+    font-size: clamp(1.7rem, 3.6vw, 3.2rem);
+    font-weight: 500;
+    line-height: 1.22;
+    letter-spacing: -0.035em;
+    max-width: 24ch;
+    max-width: 980px;
+    margin: 0;
+    text-wrap: balance;
+}
+
+.word {
+    color: rgba(255, 255, 255, 0.13);
+    transition: color 0.35s ease, text-shadow 0.35s ease;
+}
+
+.lit {
+    color: #fff;
+    text-shadow: none;
+}

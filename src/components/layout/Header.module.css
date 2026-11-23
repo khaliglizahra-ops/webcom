@@ -1,0 +1,396 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    padding: 0.9rem 0;
+    transition: padding 0.3s var(--ease);
+    pointer-events: none;
+}
+
+.headerContainer {
+    max-width: 1320px;
+}
+
+/* the floating pill */
+.bar {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: rgba(10, 16, 26, 0.62);
+    backdrop-filter: saturate(160%) blur(14px);
+    -webkit-backdrop-filter: saturate(160%) blur(14px);
+    border: 1px solid rgba(11, 27, 46, 0.08);
+    border-radius: 8px;
+    padding: 0.45rem 0.45rem 0.45rem 1.1rem;
+    box-shadow: 0 1px 2px rgba(11, 27, 46, 0.04);
+    transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.headerScrolled {
+    padding: 0.6rem 0;
+}
+
+.headerScrolled .bar {
+    background: rgba(10, 16, 26, 0.86);
+    box-shadow: 0 10px 30px -14px rgba(11, 27, 46, 0.25);
+}
+
+.headerDarkArea {}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logoImage {
+    height: 28px;
+    width: auto;
+    display: block;
+}
+
+.nav {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    margin-left: auto;
+}
+
+.navLink {
+    position: relative;
+    color: var(--ink);
+    font-family: var(--font-primary);
+    font-weight: 500;
+    font-size: 0.74rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    opacity: 0.75;
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.navLink:hover {
+    opacity: 1;
+    background: rgba(11, 27, 46, 0.05);
+}
+
+.navLinkActive {
+    opacity: 1;
+    color: var(--brand);
+}
+
+.ctaButton {
+    margin-left: 0.5rem;
+    padding: 0.6rem 1.15rem;
+    background-color: var(--brand);
+    color: var(--night);
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    transition: background-color 0.2s, transform 0.45s var(--ease);
+}
+
+.ctaButton:hover {
+    background-color: #5CC8F0;
+    color: var(--night);
+}
+
+.headerActions {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    position: relative;
+    z-index: 101;
+}
+
+.langToggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.langButton {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.5rem 0.7rem;
+    border-radius: 999px;
+    transition: background 0.2s;
+}
+
+.langButton:hover {
+    background: rgba(11, 27, 46, 0.06);
+}
+
+.langChevron {
+    transition: transform 0.2s;
+    opacity: 0.6;
+}
+
+.langChevronOpen {
+    transform: rotate(180deg);
+}
+
+.langDropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px -12px rgba(11, 27, 46, 0.3);
+    border: 1px solid var(--line);
+    min-width: 170px;
+    display: flex;
+    flex-direction: column;
+    padding: 0.4rem;
+    z-index: 1000;
+    animation: dropdownFade 0.25s var(--ease) forwards;
+}
+
+@keyframes dropdownFade {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: none; }
+}
+
+.langOption {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    border-radius: 10px;
+    color: var(--ink);
+    transition: background 0.2s;
+}
+
+.langOption:hover {
+    background: var(--paper);
+}
+
+.langActive {
+    background: var(--paper);
+}
+
+.langOptionCode {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--brand);
+    width: 22px;
+}
+
+.langOptionName {
+    font-size: 0.92rem;
+}
+
+.mobileToggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    color: var(--night);
+}
+
+.menuOpen {}
+
+/* ---------- Tablet: tighter nav ---------- */
+@media (max-width: 1100px) and (min-width: 901px) {
+    .navLink {
+        padding: 0.45rem 0.55rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ---------- Mobile menu ---------- */
+@media (max-width: 900px) {
+    /* no backdrop-filter here: it would turn the bar into the containing
+       block of the fixed full-screen menu and clip it */
+    .bar {
+        padding: 0.45rem 0.45rem 0.45rem 1rem;
+        background: var(--night-2);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    .headerScrolled .bar {
+        background: var(--night-2);
+    }
+
+    .logoImage {
+        height: 24px;
+    }
+
+    .mobileToggle {
+        display: flex;
+    }
+
+    .nav {
+        position: fixed;
+        inset: 0;
+        background: var(--night);
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 0.25rem;
+        padding: 6rem 2rem 2rem;
+        margin: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.35s var(--ease), visibility 0.35s;
+        z-index: 100;
+    }
+
+    .navMobileVisible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav .navLink {
+        color: #fff;
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        padding: 0.35rem 0;
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+        transition-delay: calc(var(--index) * 0.05s);
+        background: none;
+    }
+
+    .navMobileVisible .navLink {
+        opacity: 0.9;
+        transform: none;
+    }
+
+    .navMobileVisible .navLinkActive {
+        color: var(--color-accent-cyan);
+    }
+
+    .nav .ctaButton {
+        margin: 1.75rem 0 0;
+        padding: 1rem 1.6rem;
+        font-size: 1.05rem;
+        border-radius: 999px;
+        background: #fff;
+        opacity: 0;
+        transition: opacity 0.5s var(--ease) 0.3s;
+    }
+
+    .navMobileVisible .ctaButton {
+        opacity: 1;
+    }
+
+    /* language switcher sits on top of the dark menu: make it light */
+    .menuOpen .langButton {
+        color: #fff;
+    }
+
+    .menuOpen .mobileToggle {
+        background: #fff;
+        color: var(--night);
+    }
+}
+
+/* ---------- Desktop: Qintara-style bar ---------- */
+.ctaDesktop {
+    display: none;
+}
+
+@media (min-width: 901px) {
+    .bar {
+        position: relative;
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        padding: 0.4rem 0;
+    }
+
+    .headerScrolled .bar {
+        background: transparent;
+        box-shadow: none;
+    }
+
+    /* links sit in one centred pill */
+    .nav {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        gap: 0.1rem;
+        padding: 0.3rem;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(14, 14, 20, 0.55);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+    }
+
+    .navLink {
+        font-family: var(--font-primary);
+        text-transform: none;
+        letter-spacing: 0;
+        font-size: 0.86rem;
+        padding: 0.45rem 0.95rem;
+        border-radius: 999px;
+        opacity: 0.7;
+    }
+
+    .navLink:hover {
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+    .navLinkActive {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.09);
+    }
+
+    .nav .ctaButton {
+        display: none;
+    }
+
+    .ctaDesktop {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.55rem 1.2rem;
+        border-radius: 999px;
+        background: #fff;
+        color: var(--night);
+        font-weight: 500;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        margin-left: 0.4rem;
+        transition: box-shadow 0.3s var(--ease);
+    }
+
+    .ctaDesktop:hover {
+        color: var(--night);
+        box-shadow: 0 0 0 4px rgba(29, 159, 229, 0.25), 0 10px 36px -10px rgba(53, 212, 222, 0.8);
+    }
+
+    .langButton {
+        border: 1px solid var(--line);
+    }
+}
+
+@media (max-width: 1180px) and (min-width: 901px) {
+    .navLink {
+        padding: 0.45rem 0.6rem;
+        font-size: 0.8rem;
+    }
+}

@@ -1,0 +1,526 @@
+.xraySection {
+    background-color: var(--color-bg-light);
+    overflow: hidden;
+    position: relative;
+
+}
+
+.header {
+    max-width: 760px;
+    margin: 0 0 3rem 0;
+}
+
+.header h2,
+.header p {
+    text-align: left;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(25, 141, 186, 0.1);
+    border: 1px solid rgba(25, 141, 186, 0.2);
+    border-radius: var(--border-radius-full);
+    color: var(--color-accent-blue);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    letter-spacing: -0.02em;
+    color: var(--color-text-dark);
+}
+
+
+
+.subtitle {
+    color: #4B5563;
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin: 0;
+}
+
+/* Viewer Core Architecture */
+.viewerWrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    perspective: 2000px;
+    /* 3D effect container */
+}
+
+.perspectiveFrame {
+    width: 100%;
+    border-radius: var(--border-radius-lg);
+    /* Subtle 3D tilt */
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+    /* Soft light theme shadow */
+    background: var(--color-primary-dark);
+    /* Container base is dark */
+}
+
+
+
+.sliderContainer {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+    user-select: none;
+    cursor: ew-resize;
+    /* Horizontal resize cursor */
+}
+
+/* =========================================
+   LAYER 1 - CORE (Background/Right Side)
+   ========================================= */
+.layerCore {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #070B14;
+    /* Deep dark code environment */
+    background-image:
+        radial-gradient(circle at 70% 50%, rgba(25, 181, 254, 0.1) 0%, transparent 60%),
+        linear-gradient(to right, rgba(25, 141, 186, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(25, 141, 186, 0.05) 1px, transparent 1px);
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.coreContent {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.codeMockup {
+    position: absolute;
+    top: 50%;
+    right: 15%;
+    transform: translateY(-50%);
+    background: #0E1A2B;
+    border: 1px solid rgba(25, 141, 186, 0.2);
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.codeHeader {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid rgba(25, 141, 186, 0.1);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.dot:nth-child(1) {
+    background: #FF5F56;
+}
+
+.dot:nth-child(2) {
+    background: #FFBD2E;
+}
+
+.dot:nth-child(3) {
+    background: #27C93F;
+}
+
+.filename {
+    color: #6B7280;
+    font-family: monospace;
+    font-size: 0.8rem;
+    margin-left: 1rem;
+}
+
+.codeLines {
+    padding: 1.5rem;
+    color: #A1A1AA;
+    font-family: monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    margin: 0;
+}
+
+.codeLines code {
+    color: #19B5FE;
+    /* Syntax highlight simulation */
+}
+
+.schemaNode1,
+.schemaNode2 {
+    position: absolute;
+    background: rgba(25, 141, 186, 0.1);
+    border: 1px solid var(--color-accent-blue);
+    color: var(--color-accent-cyan);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.schemaNode1 {
+    top: 20%;
+    right: 45%;
+}
+
+.schemaNode2 {
+    bottom: 25%;
+    right: 50%;
+}
+
+.pulseDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ADE80;
+}
+
+@keyframes flashPulse {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.schemaLine {
+    position: absolute;
+    top: 30%;
+    right: 35%;
+    width: 2px;
+    height: 40%;
+    background: linear-gradient(to bottom, transparent, var(--color-accent-blue), transparent);
+    opacity: 0.5;
+    transform: rotate(45deg);
+}
+
+
+/* =========================================
+   LAYER 2 - SURFACE (Foreground/Left Side)
+   ========================================= */
+.layerSurface {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    /* width is controlled by React inline style */
+    background-color: #FFFFFF;
+    /* High value smooth surface area */
+    background-image: radial-gradient(circle at 30% 50%, rgba(243, 244, 246, 1) 0%, transparent 80%);
+    overflow: hidden;
+    /* Clips the background but also content */
+    border-right: 2px solid rgba(25, 141, 186, 0.4);
+    box-shadow: 5px 0 30px rgba(0, 0, 0, 0.1);
+    /* Casts shadow onto dark side */
+    display: flex;
+    align-items: center;
+    z-index: 5;
+}
+
+/* Because the layer width clips, absolute positioning relates to the PARENT to stay fixed during slide */
+.surfaceContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Changed from 1000px */
+    min-width: 1000px;
+    /* Maintain layout for wide screens */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1000px) {
+    .surfaceContent {
+        min-width: 100%;
+        width: 100%;
+    }
+}
+
+.uiCard {
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    width: 320px;
+    padding: 1.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    /* Position exactly where code mockup is conceptually, but on left side */
+    transform: translateX(-150px);
+}
+
+.uiImageHolder {
+    width: 100%;
+    height: 200px;
+    background: #F3F4F6;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background-image: url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=600&auto=format&fit=crop');
+    background-size: cover;
+    background-position: left center;
+}
+
+.uiTitle {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #111827;
+    margin-bottom: 0.25rem;
+}
+
+.uiPrice {
+    font-weight: 900;
+    color: var(--color-accent-blue);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.uiBtn {
+    width: 100%;
+    background: var(--color-accent-blue);
+    color: white;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.uiReviews {
+    font-size: 0.8rem;
+    color: #6B7280;
+    text-align: center;
+}
+
+
+/* =========================================
+   LABELS & HANDLE
+   ========================================= */
+.layerLabelWrapper {
+    position: absolute;
+    width: 100%;
+    /* Changed from 1000px */
+    height: 100%;
+    pointer-events: none;
+}
+
+.layerSurfaceLabelClipped {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow: hidden;
+    z-index: 6;
+    pointer-events: none;
+}
+
+.layerLabel {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    color: white;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.7;
+}
+
+.layerLabelSurface {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    color: #111827;
+    /* Dark text for light side */
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.7;
+}
+
+/* The Dragger */
+.sliderHandle {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 60px;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: pan-y;
+    /* Prevent browser scrolling while dragging horizontal */
+}
+
+.handleBar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--color-accent-blue);
+    box-shadow: 0 0 10px rgba(25, 141, 186, 0.8);
+}
+
+.handleKnob {
+    width: 48px;
+    height: 48px;
+    background: white;
+    border: 2px solid var(--color-accent-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(25, 141, 186, 0.4);
+    z-index: 2;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sliderHandle:hover .handleKnob,
+.sliderHandle:active .handleKnob {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 30px rgba(25, 141, 186, 0.6);
+}
+
+.arrows {
+    display: flex;
+    align-items: center;
+    color: var(--color-accent-blue);
+    gap: 0;
+}
+
+.arrows svg {
+    /* Compress arrows slightly */
+    width: 18px;
+    height: 18px;
+}
+
+@media (max-width: 768px) {
+    .handleKnob {
+        width: 36px;
+        height: 36px;
+    }
+
+    .arrows svg {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .xraySection {
+        display: none;
+    }
+
+    .viewerWrapper {
+        perspective: none;
+    }
+
+    .perspectiveFrame {
+        transform: none !important;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .perspectiveFrame:hover {
+        transform: none !important;
+    }
+
+    .sliderContainer {
+        height: 380px;
+        /* Reduced for better mobile fit */
+    }
+
+    .codeMockup {
+        width: 250px;
+        right: auto;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.85);
+        font-size: 0.7rem;
+    }
+
+    .codeLines {
+        padding: 1rem;
+    }
+
+    .uiCard {
+        width: 240px;
+        padding: 1rem;
+        left: 50%;
+        transform: translate(-50%, 0) scale(0.85);
+    }
+
+    .uiImageHolder {
+        height: 140px;
+    }
+
+    .uiTitle {
+        font-size: 1rem;
+    }
+
+    .uiPrice {
+        font-size: 1.25rem;
+    }
+
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .layerLabel {
+        display: none;
+    }
+
+    .layerLabelSurface {
+        display: none;
+    }
+
+    .schemaNode1,
+    .schemaNode2 {
+        display: none;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 380px) {
+    .uiCard {
+        width: 200px;
+        transform: translateX(-50px);
+    }
+
+    .codeMockup {
+        width: 220px;
+    }
+}

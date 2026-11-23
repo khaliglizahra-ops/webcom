@@ -1,0 +1,95 @@
+/* Full-screen signal-colour loading screen (reference: Studio Macaco). */
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    background: var(--brand);
+    color: var(--night);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+@media (min-width: 768px) {
+    .loader {
+        padding: 2rem 2.5rem;
+    }
+}
+
+.lift {
+    transform: translateY(-100%);
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* the logo artwork rendered black on the lime screen */
+.logo {
+    height: 24px;
+    width: auto;
+    filter: brightness(0);
+}
+
+.mono {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+.caret {
+    display: inline-block;
+    width: 0.6em;
+    height: 1em;
+    margin-left: 0.3em;
+    vertical-align: -0.15em;
+    background: var(--night);
+    animation: caret 0.8s steps(2) infinite;
+}
+
+@keyframes caret {
+    50% { opacity: 0; }
+}
+
+.bottom {
+    display: flex;
+    align-items: flex-end;
+    gap: 2rem;
+}
+
+.track {
+    flex: 1;
+    height: 2px;
+    background: rgba(5, 5, 5, 0.15);
+    margin-bottom: 1.6rem;
+}
+
+.bar {
+    display: block;
+    height: 100%;
+    background: var(--night);
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.num {
+    font-size: clamp(5rem, 20vw, 16rem);
+    font-weight: 500;
+    letter-spacing: -0.07em;
+    line-height: 0.78;
+    font-variant-numeric: tabular-nums;
+}

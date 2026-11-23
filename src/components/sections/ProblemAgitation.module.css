@@ -1,0 +1,68 @@
+.problemSection {
+    background: var(--paper);
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (min-width: 960px) {
+    .layout {
+        grid-template-columns: 0.85fr 1fr;
+        gap: 6rem;
+    }
+}
+
+.image {
+    aspect-ratio: 4 / 5;
+}
+
+@media (max-width: 959px) {
+    .image {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+.headline {
+    margin-bottom: 2.5rem;
+}
+
+.highlight {
+    display: block;
+    color: var(--brand);
+}
+
+.list {
+    margin: 0 0 2.5rem;
+    padding: 0;
+    border-top: 1px solid var(--line);
+}
+
+.item {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 1rem;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.num {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--muted);
+    padding-top: 0.35rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.cardTitle {
+    font-size: 1.3rem;
+    margin-bottom: 0.35rem;
+}
+
+.cardDesc {
+    color: var(--body);
+    margin: 0;
+}

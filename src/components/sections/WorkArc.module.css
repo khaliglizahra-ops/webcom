@@ -1,0 +1,171 @@
+.section {
+    --R: 560px;
+    --tw: 168px;
+    --th: 124px;
+    position: relative;
+    background: var(--night);
+    overflow: hidden;
+    padding: calc(var(--R) - 30px) 0 9rem;
+    isolation: isolate;
+}
+
+/* soft violet floor glow behind the ring */
+.section::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 28%;
+    width: min(1400px, 140vw);
+    height: 900px;
+    transform: translateX(-50%);
+    background: radial-gradient(closest-side, rgba(29, 159, 229, 0.22), transparent 70%);
+    z-index: -2;
+}
+
+/* the ring's centre sits behind the title; only its upper arc is on screen */
+.stage {
+    position: absolute;
+    left: 50%;
+    top: calc(var(--R) + 120px);
+    width: 0;
+    height: 0;
+    z-index: -1;
+}
+
+.ring {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    will-change: transform;
+}
+
+.tile {
+    position: absolute;
+    left: calc(var(--tw) / -2);
+    top: calc(var(--th) / -2);
+    width: var(--tw);
+    height: var(--th);
+    border-radius: 18px;
+    overflow: hidden;
+    transform: rotate(var(--a)) translateY(calc(var(--R) * -1));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.8), 0 0 30px -10px rgba(29, 159, 229, 0.35);
+    background: var(--night-2);
+    transition: box-shadow 0.3s;
+}
+
+.tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s var(--ease);
+}
+
+.project {
+    padding: 10px 10px 0;
+    display: flex;
+    align-items: flex-end;
+}
+
+.project img {
+    border-radius: 6px 6px 0 0;
+    object-position: top center;
+}
+
+.project:hover {
+    box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.8), 0 0 0 2px var(--brand), 0 0 40px -6px rgba(29, 159, 229, 0.9);
+}
+
+.project:hover img {
+    transform: scale(1.06);
+}
+
+/* fade the lower half of the ring into the black */
+.section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 38%;
+    background: linear-gradient(180deg, transparent, var(--night) 75%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.center {
+    z-index: 1;
+}
+
+.center {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+}
+
+/* dark pool behind the text so it reads over passing tiles */
+.center::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: min(760px, 100%);
+    height: 140%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(closest-side, rgba(3, 3, 8, 0.95), rgba(3, 3, 8, 0.7) 60%, transparent);
+    z-index: -1;
+}
+
+.badge {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #fff;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(29, 159, 229, 0.16);
+    border: 1px solid rgba(29, 159, 229, 0.4);
+}
+
+.title {
+    color: #fff;
+    font-size: clamp(2.2rem, 4.8vw, 4.4rem);
+    margin: 0;
+    max-width: 16ch;
+}
+
+.title :global(.serif) {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding-right: 0.08em;
+}
+
+.sub {
+    color: var(--body);
+    max-width: 480px;
+    margin: 0 0 0.5rem;
+}
+
+@media (max-width: 900px) {
+    .section {
+        --R: 340px;
+        --tw: 112px;
+        --th: 84px;
+        padding-bottom: 6rem;
+    }
+
+    .stage {
+        top: calc(var(--R) + 90px);
+    }
+
+    .tile {
+        border-radius: 12px;
+    }
+}

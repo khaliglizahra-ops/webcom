@@ -1,0 +1,44 @@
+.section {
+    background: var(--night);
+    padding: 7rem 0 6rem;
+    border-top: 1px solid var(--line);
+}
+
+.head {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+}
+
+@media (min-width: 960px) {
+    .head {
+        grid-template-columns: 1.3fr 1fr;
+        align-items: end;
+        gap: 4rem;
+    }
+}
+
+.title {
+    color: #fff;
+    font-size: clamp(2.3rem, 5vw, 4.6rem);
+    margin: 0;
+    max-width: 15ch;
+}
+
+.side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+}
+
+.side p {
+    color: var(--body);
+    margin: 0;
+    max-width: 440px;
+}
+
+.side :global(.textLink) {
+    color: var(--brand);
+}

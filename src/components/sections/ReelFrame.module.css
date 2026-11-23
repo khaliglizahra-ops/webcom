@@ -1,0 +1,74 @@
+.section {
+    background: var(--night);
+    padding: 1rem 0 6rem;
+}
+
+.wrap {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* --p: 0 → 1 as the frame scrolls into view */
+.frame {
+    --p: 0;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #000;
+    transform: perspective(1400px) rotateX(calc((1 - var(--p)) * 14deg)) scale(calc(0.86 + var(--p) * 0.14));
+    transform-origin: 50% 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 0 0 1px rgba(29, 159, 229, 0.15),
+        0 -20px 120px -20px rgba(29, 159, 229, calc(0.25 + var(--p) * 0.35)),
+        0 40px 120px -40px rgba(29, 159, 229, 0.5);
+    will-change: transform;
+}
+
+.video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.shade {
+    position: absolute;
+    inset: auto 0 0;
+    height: 30%;
+    background: linear-gradient(180deg, transparent, rgba(3, 3, 8, 0.7));
+    pointer-events: none;
+}
+
+.bar {
+    position: absolute;
+    left: 1.25rem;
+    bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.play {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    display: grid;
+    place-items: center;
+}
+
+@media (max-width: 700px) {
+    .frame {
+        aspect-ratio: 4 / 5;
+    }
+}

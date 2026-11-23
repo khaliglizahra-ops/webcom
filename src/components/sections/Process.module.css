@@ -1,0 +1,78 @@
+.processSection {
+    background: var(--paper);
+}
+
+.timeline {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+}
+
+@media (min-width: 720px) {
+    .timeline {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1100px) {
+    .timeline {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.step {
+    padding: 2rem 2rem 2.25rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+@media (min-width: 720px) {
+    .step + .step {
+        padding-left: 2rem;
+        border-left: 1px solid var(--line);
+    }
+}
+
+@media (min-width: 720px) and (max-width: 1099px) {
+    .step:nth-child(3) {
+        padding-left: 0;
+        border-left: 0;
+    }
+}
+
+.num {
+    display: block;
+    font-family: var(--font-primary);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--brand);
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 1.35rem;
+    margin-bottom: 0.5rem;
+}
+
+.desc {
+    color: var(--body);
+    margin: 0;
+}
+
+@media (max-width: 719px) {
+    .step {
+        display: grid;
+        grid-template-columns: 3rem 1fr;
+        column-gap: 0.75rem;
+        padding: 1.5rem 0;
+    }
+
+    .num {
+        font-size: 2.6rem;
+        margin: 0;
+        grid-row: span 2;
+    }
+}

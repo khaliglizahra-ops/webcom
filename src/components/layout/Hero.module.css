@@ -1,0 +1,169 @@
+/* pinned scroll story: 1 opening + 4 service chapters */
+.story {
+    position: relative;
+    height: 480vh;
+    background: var(--night);
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+}
+
+.canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* ---------- opening ---------- */
+.hero {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: clamp(7rem, 16vh, 10rem);
+    will-change: opacity, transform;
+}
+
+.headline {
+    margin: 0;
+    color: #fff;
+    font-weight: 400;
+    font-size: clamp(2.3rem, 5.2vw, 4.6rem);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    max-width: 16ch;
+}
+
+.line {
+    display: block;
+}
+
+.dim {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.rot {
+    color: #fff;
+}
+
+.sub {
+    margin: 1.4rem 0 0;
+    max-width: 52ch;
+    color: var(--body);
+    font-size: 1.08rem;
+    line-height: 1.6;
+}
+
+.ctas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 1.8rem;
+}
+
+/* ---------- chapters ---------- */
+.chapters {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: clamp(2.5rem, 9vh, 5rem);
+    z-index: 2;
+    pointer-events: none;
+    display: grid;
+    align-items: end;
+}
+
+.chapter {
+    grid-area: 1 / 1;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.7s var(--ease);
+}
+
+.chapter.on {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0.12s;
+}
+
+.label {
+    color: var(--brand);
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 0 0.9rem;
+}
+
+.text {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2rem, 4.4vw, 4rem);
+    font-weight: 400;
+    line-height: 1.06;
+    letter-spacing: -0.035em;
+    max-width: 15ch;
+}
+
+.accent {
+    color: var(--brand);
+}
+
+.counter {
+    position: absolute;
+    right: 1.6rem;
+    top: 50%;
+    z-index: 2;
+    transform: translateY(-50%) rotate(90deg);
+    transform-origin: center;
+    color: var(--muted);
+    font-size: 0.74rem;
+    letter-spacing: 0.12em;
+}
+
+.scroll {
+    position: absolute;
+    left: 50%;
+    bottom: 1.4rem;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: var(--muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: opacity 0.4s ease;
+}
+
+.gone {
+    opacity: 0;
+}
+
+@media (max-width: 700px) {
+    .story {
+        height: 420vh;
+    }
+
+    .hero {
+        padding-top: 6.5rem;
+    }
+
+    .sub {
+        font-size: 1rem;
+    }
+
+    .counter {
+        right: 0.4rem;
+    }
+
+    .text {
+        font-size: clamp(1.9rem, 8.4vw, 2.6rem);
+    }
+}

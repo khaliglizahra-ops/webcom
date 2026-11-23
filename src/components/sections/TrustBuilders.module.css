@@ -1,0 +1,104 @@
+.trustSection {
+    background-color: var(--color-bg-light);
+    text-align: center;
+}
+
+.headline {
+    color: var(--color-primary-dark);
+    margin-bottom: var(--spacing-xl);
+}
+
+.testimonialGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .testimonialGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.testimonialCard {
+    background-color: var(--color-bg-gray);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .testimonialCard {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .authorBlock {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.quote {
+    font-size: 1.125rem;
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-md);
+}
+
+.authorBlock {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #D1D5DB;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Sarah J. Avatar */
+.testimonialCard:nth-child(1) .avatar {
+    background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&h=200&auto=format&fit=crop');
+}
+
+/* Marcus T. Avatar */
+.testimonialCard:nth-child(2) .avatar {
+    background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&h=200&auto=format&fit=crop');
+}
+
+.authorName {
+    font-weight: 700;
+    color: var(--color-primary-dark);
+}
+
+.authorRole {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
+.logoBar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-xl);
+    opacity: 0.5;
+    filter: grayscale(100%);
+}
+
+.logoPlaceholder {
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.1em;
+}
