@@ -30,7 +30,7 @@ export const guides: Guide[] = [
     {
         slug: 'sayt-qiymeti',
         title: 'Sayt neçəyə başa gəlir? Qiymətə təsir edən 7 əsas amil',
-        desc: 'Veb saytın qiyməti niyə bu qədər fərqlidir? Səhifə sayı, dizayn, onlayn ödəniş, dil sayı və digər amillər qiymətə necə təsir edir: sifarişdən əvvəl bilməli olduqlarınız.',
+        desc: 'Veb saytın qiyməti niyə fərqlidir? Səhifə sayı, dizayn, onlayn ödəniş, dil sayı və digər amillər qiymətə necə təsir edir: sifarişdən əvvəl bilməli olduqlarınız.',
         tag: 'Sayt sifarişi',
         date: '2026-11-23',
         minutes: 5,

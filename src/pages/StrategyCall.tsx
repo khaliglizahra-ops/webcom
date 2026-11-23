@@ -50,7 +50,7 @@ export default function StrategyCall() {
                 <div className={classes.panelShade} aria-hidden="true" />
                 <div className={classes.panelContent}>
                     <Link to="/" className={classes.logo} aria-label="WebCom">
-                        <img src="/logo-dark.png?v=1" alt="WebCom" />
+                        <img src="/logo-dark.webp" width={353} height={72} alt="WebCom" />
                     </Link>
                     <div>
                         <p className={classes.panelLead}>{t('strategy.desc')}</p>

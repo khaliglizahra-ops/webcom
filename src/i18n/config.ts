@@ -19,7 +19,7 @@ const resources = {
             meta: {
                 workTitle: "Our Work | WebCom, Ankara",
                 workDesc: "Websites and online stores we have built for shops and businesses, most of them in Ankara.",
-                homeTitle: "WebCom | Websites, Online Stores and Google Visibility for Businesses",
+                homeTitle: "Websites, Online Stores & SEO for Businesses | WebCom",
                 homeDesc: "WebCom designs websites and online stores for businesses, gets them found on Google and runs their ads. We stay with you after launch.",
                 aboutTitle: "About | WebCom",
                 aboutDesc: "A studio that starts every project by getting to know the business, and builds simple websites that bring results.",
@@ -505,7 +505,7 @@ const resources = {
             meta: {
                 workTitle: "İşlerimiz | WebCom, Ankara",
                 workDesc: "Çoğu Ankara’da olmak üzere dükkanlar ve işletmeler için yaptığımız web siteleri ve online mağazalar.",
-                homeTitle: "WebCom | İşletmeler İçin Web Sitesi, Online Mağaza ve Google Görünürlüğü",
+                homeTitle: "Web Tasarım, Online Mağaza ve SEO | WebCom",
                 homeDesc: "WebCom, işletmeler için web sitesi ve online mağaza tasarlar, Google'da bulunmalarını sağlar ve reklamlarını yönetir. Yayından sonra da yanınızdayız.",
                 aboutTitle: "Hakkımızda | WebCom",
                 aboutDesc: "İşletmeyi tanıyarak başlayan, sade ve sonuç odaklı web projeleri hazırlayan bir stüdyo.",
@@ -992,7 +992,7 @@ const resources = {
                 workTitle: "Portfolio: hazırladığımız saytlar | WebCom",
                 workDesc: "Pet shop, restoran, döymə studiyası, elektrik şirkəti və digər bizneslər üçün hazırladığımız, hazırda işləyən veb saytlar və onlayn mağazalar.",
                 homeTitle: "Sayt sifarişi və hazırlanması, onlayn mağaza, SEO | WebCom",
-                homeDesc: "Azərbaycan bizneslərinə veb sayt hazırlanması, onlayn (internet) mağaza və Google-da görünürlük (SEO). Telefonda sürətli açılan, müştəri gətirən saytlar. Pulsuz təklif alın.",
+                homeDesc: "Azərbaycan bizneslərinə sayt hazırlanması, onlayn mağaza və SEO. Telefonda sürətli açılan, müştəri gətirən saytlar. Pulsuz təklif alın.",
                 aboutTitle: "Haqqımızda | WebCom veb studiyası",
                 aboutDesc: "Hər layihəyə biznesi tanımaqla başlayan, sadə və nəticəyönümlü veb saytlar hazırlayan studiya.",
                 servicesTitle: "Xidmətlər: sayt hazırlanması, onlayn mağaza, SEO | WebCom",

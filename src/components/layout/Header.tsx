@@ -77,7 +77,7 @@ export default function Header() {
 
                 {/* Logo */}
                 <Link to="/" className={classes.logo}>
-                    <img src="/logo-dark.png?v=1" alt="WebCom" className={classes.logoImage} />
+                    <img src="/logo-dark.webp" width={353} height={72} alt="WebCom" className={classes.logoImage} />
                 </Link>
 
                 {/* Navigation */}

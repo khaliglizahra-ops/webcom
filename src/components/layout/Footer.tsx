@@ -21,13 +21,13 @@ export default function Footer() {
                 <div className={classes.grid}>
                     <div className={classes.brand}>
                         <Link to="/" aria-label="WebCom">
-                            <img src="/logo-dark.png?v=1" alt="WebCom" className={classes.logo} />
+                            <img src="/logo-dark.webp" width={353} height={72} alt="WebCom" className={classes.logo} />
                         </Link>
                         <p className={classes.tagline}>{t('footer.tag')}</p>
                     </div>
 
                     <div>
-                        <h4 className={classes.heading}>{t('footer.links')}</h4>
+                        <h2 className={classes.heading}>{t('footer.links')}</h2>
                         <ul className={classes.linkList}>
                             <li><Link to="/work">{t('nav.work')}</Link></li>
                             <li><Link to="/services">{t('nav.services')}</Link></li>
@@ -40,7 +40,7 @@ export default function Footer() {
                     </div>
 
                     <div>
-                        <h4 className={classes.heading}>{t('nav.contact')}</h4>
+                        <h2 className={classes.heading}>{t('nav.contact')}</h2>
                         <ul className={classes.linkList}>
                             <li>
                                 <a href="mailto:khaliglizahra@gmail.com" className={classes.iconLink}>

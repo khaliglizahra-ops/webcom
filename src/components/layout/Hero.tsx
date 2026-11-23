@@ -225,7 +225,7 @@ export default function Hero() {
                             </span>
                         )}
                     </h1>
-                    <p className={classes.sub} data-reveal="up" style={{ '--d': '700ms' } as React.CSSProperties}>
+                    <p className={classes.sub}>
                         {t('hero.subheadline')}
                     </p>
                     <div className={classes.ctas} data-reveal="up" style={{ '--d': '850ms' } as React.CSSProperties}>
