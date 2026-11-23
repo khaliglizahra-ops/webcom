@@ -60,7 +60,8 @@ try {
                 `http://localhost:${PORT}${path}`,
             ], { encoding: 'utf8', maxBuffer: 32 * 1024 * 1024, timeout: 60000 });
             if (!html.includes('rel="canonical"')) throw new Error(`no SEO tags rendered for ${path}`);
-            const file = join(out, path.endsWith('/') ? path : `${path}/`, 'index.html');
+            // /az/services → az/services.html, served by GitHub Pages at /az/services with no redirect
+            const file = path.endsWith('/') ? join(out, path, 'index.html') : join(out, `${path}.html`);
             mkdirSync(dirname(file), { recursive: true });
             writeFileSync(file, `<!doctype html>\n${html}`);
             const title = (html.match(/<title[^>]*>([^<]*)/) || [])[1];
