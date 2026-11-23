@@ -3,11 +3,12 @@ import { ArrowRight } from 'lucide-react';
 import Button from '../ui/Button';
 import AnimatedTitle from '../ui/AnimatedTitle';
 import DotGlobe from '../ui/DotGlobe';
+import { whatsappLink } from '../../data/contact';
 import classes from './FinalCTA.module.css';
 
 /** Closing call to action: big headline on the left, a turning dot globe on the right. */
 export default function FinalCTA({ spaced = false }: { spaced?: boolean }) {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     return (
         <section className={`${classes.ctaSection} ${spaced ? classes.spaced : ''}`}>
             <div className={`container ${classes.grid}`}>
@@ -21,7 +22,7 @@ export default function FinalCTA({ spaced = false }: { spaced?: boolean }) {
                         <Button to="/strategy-call" variant="accent" size="lg">
                             {t('cta.primaryBtn')} <ArrowRight size={18} />
                         </Button>
-                        <Button to="/contact" variant="glass" size="lg">
+                        <Button href={whatsappLink(i18n.language)} variant="glass" size="lg">
                             {t('cta.secondaryBtn')}
                         </Button>
                     </div>

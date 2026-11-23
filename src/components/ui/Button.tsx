@@ -15,9 +15,10 @@ interface BaseProps {
 
 type ButtonProps = BaseProps & React.ButtonHTMLAttributes<HTMLButtonElement> & { to?: undefined };
 type LinkProps = BaseProps & { to: string; onClick?: () => void };
+type AnchorProps = BaseProps & { href: string; to?: undefined };
 
-/** A button, or a router link styled as one when `to` is given. */
-export default function Button(props: ButtonProps | LinkProps) {
+/** A button; a router link when `to` is given; an external link (new tab) when `href` is given. */
+export default function Button(props: ButtonProps | LinkProps | AnchorProps) {
     const { variant = 'primary', size = 'md', fullWidth = false, className, children } = props;
     const cls = clsx(
         classes.btn,
@@ -27,11 +28,15 @@ export default function Button(props: ButtonProps | LinkProps) {
         className
     );
 
+    if ('href' in props && props.href) {
+        return <a href={props.href} target="_blank" rel="noopener noreferrer" className={cls}>{children}</a>;
+    }
+
     if (props.to !== undefined) {
         return <Link to={props.to} className={cls} onClick={props.onClick} data-magnetic>{children}</Link>;
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { variant: _v, size: _s, fullWidth: _f, className: _c, children: _ch, to: _t, ...rest } = props;
+    const { variant: _v, size: _s, fullWidth: _f, className: _c, children: _ch, to: _t, ...rest } = props as ButtonProps;
     return <button className={cls} data-magnetic {...rest}>{children}</button>;
 }

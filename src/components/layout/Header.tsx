@@ -86,7 +86,7 @@ export default function Header() {
                         { to: '/work', label: t('nav.work') },
                         { to: '/services', label: t('nav.services') },
                         { to: '/process', label: t('nav.process') },
-                        { to: '/blog', label: t('nav.blog') },
+                        i18n.language === 'az' ? { to: '/guides', label: 'Bələdçilər' } : { to: '/blog', label: t('nav.blog') },
                         { to: '/about', label: t('nav.about') },
                         { to: '/contact', label: t('nav.contact') },
                     ].map((link, index) => (

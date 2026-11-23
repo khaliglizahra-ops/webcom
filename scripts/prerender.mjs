@@ -11,6 +11,8 @@ import { join, dirname } from 'node:path';
 
 const ROUTES = ['/', '/services', '/work', '/about', '/process', '/contact', '/strategy-call', '/blog'];
 const LANGS = ['tr', 'en', 'az'];
+// Azerbaijani-only pages
+const EXTRA = ['/az/guides', '/az/guides/sayt-qiymeti', '/az/guides/onlayn-magaza-acmaq', '/az/guides/google-xeritelerde-biznes', '/az/guides/instagram-ve-sayt'];
 const PORT = 4179;
 const DIST = 'dist';
 
@@ -48,9 +50,9 @@ const profile = mkdtempSync(join(tmpdir(), 'prerender-chrome-'));
 
 try {
     await waitFor(`http://localhost:${PORT}/`);
-    for (const lang of LANGS) {
-        for (const route of ROUTES) {
-            const path = localize(route, lang);
+    const paths = [...LANGS.flatMap(lang => ROUTES.map(route => localize(route, lang))), ...EXTRA];
+    {
+        for (const path of paths) {
             // headless dumps occasionally fire before the page settles; retry
             let html = '';
             for (let attempt = 1; attempt <= 3 && !html.includes('rel="canonical"'); attempt++) html = execFileSync(chrome, [

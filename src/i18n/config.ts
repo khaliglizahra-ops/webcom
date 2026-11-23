@@ -250,7 +250,7 @@ const resources = {
                 eyebrow: "Web studio in Ankara",
                 recentLabel: "Recent work:",
                 headline: "Websites and online stores for your business.",
-                subheadline: "Pet shops, pizza places, tattoo studios, electricians… We build websites for small businesses and help them get found on Google. Once your site is live, we're still a message away.",
+                subheadline: "We build websites and online stores made for your business and help you get found on Google. Once your site is live, we're still a message away.",
                 primaryCta: "Get a Free Quote",
                 secondaryCta: "See Our Work"
             },
@@ -736,7 +736,7 @@ const resources = {
                 eyebrow: "Ankara’da bir web stüdyosu",
                 recentLabel: "Son işler:",
                 headline: "İşletmeniz için web sitesi ve online mağaza.",
-                subheadline: "Pet shop, pizzacı, dövme stüdyosu, elektrikçi… Küçük işletmelere site yapıyor, Google'da bulunmalarına yardım ediyoruz. Siteniz yayına girdikten sonra da bir mesaj uzağındayız.",
+                subheadline: "İşletmenize özel web siteleri ve online mağazalar hazırlıyor, Google'da bulunmanıza yardım ediyoruz. Siteniz yayına girdikten sonra da bir mesaj uzağındayız.",
                 primaryCta: "Ücretsiz Teklif Alın",
                 secondaryCta: "Çalışmalarımızı İnceleyin"
             },
@@ -1222,7 +1222,7 @@ const resources = {
                 eyebrow: "Ankarada veb studiya",
                 recentLabel: "Son işlər:",
                 headline: "Biznesiniz üçün veb sayt və onlayn mağaza.",
-                subheadline: "Pet shop, pizzeriya, döymə studiyası, elektrikçi… Kiçik bizneslər üçün sayt qurur, Google-da tapılmalarına kömək edirik. Saytınız yayımlandıqdan sonra da bir mesaj uzağındayıq.",
+                subheadline: "Biznesinizə uyğun veb saytlar və onlayn mağazalar hazırlayır, Google-da tapılmağınıza kömək edirik. Saytınız yayımlandıqdan sonra da bir mesaj uzağındayıq.",
                 primaryCta: "Pulsuz təklif alın",
                 secondaryCta: "İşlərimizə baxın"
             },

@@ -8,11 +8,14 @@ import { LANGS, OG_LOCALE, SITE, langFromPath, localize, stripLang, type Lang } 
  * the same page in every language, Open Graph / Twitter tags and <html lang>.
  * Optional JSON-LD is passed through as-is.
  */
-export default function Seo({ title, description, jsonLd, noindex }: {
+export default function Seo({ title, description, jsonLd, noindex, single, type = 'website' }: {
     title: string;
     description: string;
     jsonLd?: object | object[];
     noindex?: boolean;
+    /** page exists in one language only: no hreflang alternates */
+    single?: boolean;
+    type?: 'website' | 'article';
 }) {
     const { pathname } = useLocation();
     useTranslation(); // re-render on language change
@@ -27,19 +30,19 @@ export default function Seo({ title, description, jsonLd, noindex }: {
             <meta name="description" content={description} />
             {noindex && <meta name="robots" content="noindex, follow" />}
             <link rel="canonical" href={url} />
-            {LANGS.map(l => (
+            {!single && LANGS.map(l => (
                 <link key={l} rel="alternate" hrefLang={l} href={SITE + localize(base, l)} />
             ))}
-            <link rel="alternate" hrefLang="x-default" href={SITE + localize(base, 'tr')} />
+            {!single && <link rel="alternate" hrefLang="x-default" href={SITE + localize(base, 'tr')} />}
 
-            <meta property="og:type" content="website" />
+            <meta property="og:type" content={type} />
             <meta property="og:site_name" content="WebCom" />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
             <meta property="og:url" content={url} />
             <meta property="og:image" content={image} />
             <meta property="og:locale" content={OG_LOCALE[lang]} />
-            {LANGS.filter(l => l !== lang).map(l => (
+            {!single && LANGS.filter(l => l !== lang).map(l => (
                 <meta key={l} property="og:locale:alternate" content={OG_LOCALE[l]} />
             ))}
             <meta name="twitter:card" content="summary_large_image" />

@@ -5,7 +5,7 @@ import AnimatedTitle from '../ui/AnimatedTitle';
 import classes from './Footer.module.css';
 
 export default function Footer() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     return (
         <footer className={classes.footer}>
             <div className="container">
@@ -33,6 +33,7 @@ export default function Footer() {
                             <li><Link to="/services">{t('nav.services')}</Link></li>
                             <li><Link to="/process">{t('nav.process')}</Link></li>
                             <li><Link to="/blog">{t('nav.blog')}</Link></li>
+                            {i18n.language === 'az' && <li><Link to="/guides">Bələdçilər</Link></li>}
                             <li><Link to="/about">{t('nav.about')}</Link></li>
                             <li><Link to="/contact">{t('nav.contact')}</Link></li>
                         </ul>

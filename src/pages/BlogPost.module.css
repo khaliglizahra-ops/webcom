@@ -95,3 +95,39 @@
     font-size: clamp(1.6rem, 2.8vw, 2.2rem);
     margin: 3rem 0 1rem;
 }
+
+.articleBody h3 {
+    font-size: 1.2rem;
+    margin: 1.75rem 0 0.5rem;
+    color: var(--ink);
+}
+
+.articleBody ul {
+    margin: 0 0 1.8rem;
+    padding-left: 1.3rem;
+    color: var(--body);
+    font-size: 1.1rem;
+    line-height: 1.75;
+}
+
+.articleBody li {
+    margin-bottom: 0.45rem;
+}
+
+.articleBody li::marker {
+    color: var(--brand);
+}
+
+.articleBody a:not([class]) {
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: var(--brand);
+    text-underline-offset: 3px;
+}
+
+.articleBody .noCap::first-letter {
+    float: none;
+    font-size: inherit;
+    padding: 0;
+    color: inherit;
+}
