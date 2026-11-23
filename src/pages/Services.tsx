@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Check } from 'lucide-react';
 import PageHero from '../components/layout/PageHero';
@@ -14,10 +14,7 @@ export default function Services() {
 
     return (
         <main>
-            <Helmet>
-                <title>{t('meta.servicesTitle')}</title>
-                <meta name="description" content={t('meta.servicesDesc')} />
-            </Helmet>
+            <Seo title={t('meta.servicesTitle')} description={t('meta.servicesDesc')} />
 
             <PageHero
                 eyebrow={t('nav.services')}

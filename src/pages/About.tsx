@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo';
 import { useTranslation } from 'react-i18next';
 import PageHero from '../components/layout/PageHero';
 import AnimatedTitle from '../components/ui/AnimatedTitle';
@@ -12,15 +12,7 @@ export default function About() {
 
     return (
         <main>
-            <Helmet>
-                <title>{t('meta.aboutTitle')}</title>
-                <meta name="description" content={t('meta.aboutDesc')} />
-                <meta property="og:title" content={t('meta.aboutTitle')} />
-                <meta property="og:description" content={t('meta.aboutDesc')} />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://webcomagency.com/about" />
-                <meta name="twitter:card" content="summary_large_image" />
-            </Helmet>
+            <Seo title={t('meta.aboutTitle')} description={t('meta.aboutDesc')} />
 
             <PageHero
                 eyebrow={t('nav.about')}

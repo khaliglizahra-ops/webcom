@@ -1,4 +1,5 @@
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo';
+import { homeJsonLd } from '../data/schema';
 import { useTranslation } from 'react-i18next';
 import Hero from '../components/layout/Hero';
 import Ticker from '../components/sections/Ticker';
@@ -13,15 +14,7 @@ export default function Home() {
 
     return (
         <main>
-            <Helmet>
-                <title>{t('meta.homeTitle')}</title>
-                <meta name="description" content={t('meta.homeDesc')} />
-                <meta property="og:title" content={t('meta.homeTitle')} />
-                <meta property="og:description" content={t('meta.homeDesc')} />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://webcomagency.com" />
-                <meta name="twitter:card" content="summary_large_image" />
-            </Helmet>
+            <Seo title={t('meta.homeTitle')} description={t('meta.homeDesc')} jsonLd={homeJsonLd(t)} />
 
             <Hero />
             <Ticker />

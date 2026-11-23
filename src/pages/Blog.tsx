@@ -1,6 +1,6 @@
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import Link from '../components/ui/LangLink';
 import { ArrowUpRight } from 'lucide-react';
 import PageHero from '../components/layout/PageHero';
 import classes from './Blog.module.css';
@@ -34,10 +34,7 @@ export default function Blog() {
 
     return (
         <main>
-            <Helmet>
-                <title>{t('meta.blogTitle')}</title>
-                <meta name="description" content={t('blogPage.subtitle')} />
-            </Helmet>
+            <Seo title={t('meta.blogTitle')} description={t('blogPage.subtitle')} />
 
             <PageHero
                 eyebrow={t('nav.blog')}

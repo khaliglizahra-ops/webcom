@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
 import PageHero from '../components/layout/PageHero';
@@ -17,10 +17,7 @@ export default function Process() {
 
     return (
         <main>
-            <Helmet>
-                <title>{t('meta.processTitle')}</title>
-                <meta name="description" content={t('meta.processDesc')} />
-            </Helmet>
+            <Seo title={t('meta.processTitle')} description={t('meta.processDesc')} />
 
             <PageHero
                 eyebrow={t('nav.process')}

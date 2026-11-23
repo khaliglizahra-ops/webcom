@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Link } from 'react-router-dom';
+import Link from './LangLink';
 import classes from './Button.module.css';
 
 type Variant = 'primary' | 'accent' | 'secondary' | 'outline' | 'ghost' | 'light' | 'outlineLight' | 'glass';

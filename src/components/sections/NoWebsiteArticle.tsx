@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import Link from '../ui/LangLink';
 import { ArrowRight } from 'lucide-react';
 import classes from './NoWebsiteArticle.module.css';
 

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import Link from '../ui/LangLink';
 import AnimatedTitle from '../ui/AnimatedTitle';
 import { photo, servicePhotos } from '../../data/photos';
 import classes from './ServicesSnapshot.module.css';

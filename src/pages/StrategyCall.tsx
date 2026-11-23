@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import Link from '../components/ui/LangLink';
 import { ArrowLeft, ArrowRight, Check, CheckCircle2 } from 'lucide-react';
 import Input from '../components/ui/Input';
 import Textarea from '../components/ui/Textarea';
@@ -42,14 +42,7 @@ export default function StrategyCall() {
 
     return (
         <main className={classes.page}>
-            <Helmet>
-                <title>{t('meta.strategyTitle')}</title>
-                <meta name="description" content={t('meta.strategyDesc')} />
-                <meta property="og:title" content={t('meta.strategyTitle')} />
-                <meta property="og:description" content={t('meta.strategyDesc')} />
-                <meta property="og:type" content="website" />
-                <meta name="twitter:card" content="summary_large_image" />
-            </Helmet>
+            <Seo title={t('meta.strategyTitle')} description={t('meta.strategyDesc')} />
 
             {/* Left: photo panel with what you get */}
             <aside className={classes.panel}>

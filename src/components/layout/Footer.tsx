@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import Link from '../ui/LangLink';
 import { ArrowRight, Instagram, Linkedin, Mail, MapPin } from 'lucide-react';
 import AnimatedTitle from '../ui/AnimatedTitle';
 import classes from './Footer.module.css';

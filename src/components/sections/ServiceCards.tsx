@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from '../ui/LangLink';
 import AnimatedTitle from '../ui/AnimatedTitle';
 import classes from './ServiceCards.module.css';
 

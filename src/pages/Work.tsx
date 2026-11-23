@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo';
 import { useTranslation } from 'react-i18next';
 import AnimatedTitle from '../components/ui/AnimatedTitle';
 import WorkList from '../components/sections/WorkList';
@@ -10,12 +10,7 @@ export default function WorkPage() {
     const { t } = useTranslation();
     return (
         <main>
-            <Helmet>
-                <title>{t('meta.workTitle')}</title>
-                <meta name="description" content={t('meta.workDesc')} />
-                <meta property="og:title" content={t('meta.workTitle')} />
-                <meta property="og:description" content={t('meta.workDesc')} />
-            </Helmet>
+            <Seo title={t('meta.workTitle')} description={t('meta.workDesc')} />
 
             <section className={classes.page}>
                 <div className="container">

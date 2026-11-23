@@ -1,6 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
+import { langFromPath } from './lang';
 
 // Comprehensive translations for WebCom Agency
 const resources = {
@@ -989,22 +989,22 @@ const resources = {
                 bookCall: "Təklif alın"
             },
             meta: {
-                workTitle: "İşlərimiz | WebCom, Ankara",
-                workDesc: "Əksəriyyəti Ankarada olmaqla mağazalar və bizneslər üçün hazırladığımız veb saytlar və onlayn mağazalar.",
-                homeTitle: "WebCom | Bizneslər üçün Veb Sayt, Onlayn Mağaza və Google Görünürlüyü",
-                homeDesc: "WebCom bizneslər üçün veb sayt və onlayn mağaza hazırlayır, onların Google-da tapılmasını təmin edir və reklamlarını idarə edir. Açılışdan sonra da yanınızdayıq.",
-                aboutTitle: "Haqqımızda | WebCom",
+                workTitle: "Portfolio: hazırladığımız saytlar | WebCom",
+                workDesc: "Pet shop, restoran, döymə studiyası, elektrik şirkəti və digər bizneslər üçün hazırladığımız, hazırda işləyən veb saytlar və onlayn mağazalar.",
+                homeTitle: "Sayt sifarişi və hazırlanması, onlayn mağaza, SEO | WebCom",
+                homeDesc: "Azərbaycan bizneslərinə veb sayt hazırlanması, onlayn (internet) mağaza və Google-da görünürlük (SEO). Telefonda sürətli açılan, müştəri gətirən saytlar. Pulsuz təklif alın.",
+                aboutTitle: "Haqqımızda | WebCom veb studiyası",
                 aboutDesc: "Hər layihəyə biznesi tanımaqla başlayan, sadə və nəticəyönümlü veb saytlar hazırlayan studiya.",
-                servicesTitle: "Xidmətlərimiz | WebCom",
-                servicesDesc: "Veb sayt, onlayn mağaza, Google və Xəritələrdə görünmə, reklam idarəetməsi, korporativ kimlik və avtomatlaşdırma.",
-                processTitle: "Necə işləyirik | WebCom",
+                servicesTitle: "Xidmətlər: sayt hazırlanması, onlayn mağaza, SEO | WebCom",
+                servicesDesc: "Veb sayt və internet mağaza hazırlanması, Google və Xəritələrdə görünmə (SEO), Instagram və Google reklamları, loqo və korporativ üslub, avtomatlaşdırma.",
+                processTitle: "Sayt necə hazırlanır? İş prosesimiz | WebCom",
                 processDesc: "İlk tanışlıqdan açılışa və sonrasına: WebCom layihəsinin dörd aydın addımı.",
                 blogTitle: "WebCom Bloq | Texnologiya və Satira",
                 blogDesc: "Özünə inamı bacarıqla səhv salan startapçılar üçün faydalı (və acı) həqiqətlər.",
-                contactTitle: "Əlaqə | WebCom",
-                contactDesc: "Layihənizi qısaca yazın, bir iş günü ərzində sizə aydın təkliflə qayıdaq.",
-                strategyTitle: "Pulsuz təklif alın | WebCom",
-                strategyDesc: "Saytınız, Google görünürlüyünüz və ya onlayn mağazanız üçün pulsuz və öhdəliksiz ilkin görüş."
+                contactTitle: "Əlaqə: sayt sifarişi üçün yazın | WebCom",
+                contactDesc: "Saytınız və ya onlayn mağazanız üçün layihənizi qısaca yazın; bir iş günü ərzində aydın qiymət təklifi ilə qayıdaq.",
+                strategyTitle: "Saytın qiyməti nə qədərdir? Pulsuz təklif alın | WebCom",
+                strategyDesc: "Sayt, onlayn mağaza və ya SEO üçün pulsuz və öhdəliksiz qiymət təklifi alın. Biznesinizi danışın, nə edəcəyimizi və qiymətini yazaq."
             },
             processPage: {
                 titlePart1: "Necə ",
@@ -1012,7 +1012,7 @@ const resources = {
                 subtitle: "Dörd aydın addım, sürprizsiz proses. Hər mərhələdə nəyin görüldüyünü və qiymətini bilirsiniz.",
                 step1Num: "Addım 01",
                 step1Title: "Tanışlıq və araşdırma",
-                step1Desc: "Biznesinizə gəlirik və ya telefonla danışırıq. Hazırkı vəziyyətinizi, müştərilərinizi və saytdan gözləntinizi dinlədikdən sonra sizə yazılı təklif təqdim edirik.",
+                step1Desc: "Telefon, WhatsApp və ya görüntülü zənglə danışırıq. Hazırkı vəziyyətinizi, müştərilərinizi və saytdan gözləntinizi dinlədikdən sonra sizə yazılı təklif təqdim edirik.",
                 step2Num: "Addım 02",
                 step2Title: "Dizayn və hazırlanma",
                 step2Desc: "Saytınızı hazır şablondan yox, işinizə xüsusi olaraq sıfırdan dizayn edirik. Qaralamalara birlikdə baxır, istədiyiniz dəyişiklikləri birlikdə edirik.",
@@ -1465,11 +1465,12 @@ const resources = {
     }
 };
 
+// the URL decides the language (/az/..., /en/..., Turkish at the root)
 i18n
-    .use(LanguageDetector)
     .use(initReactI18next)
     .init({
         resources,
+        lng: langFromPath(window.location.pathname),
         fallbackLng: 'tr',
         interpolation: {
             escapeValue: false, // react already safes from xss

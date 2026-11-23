@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { useParams } from 'react-router-dom';
+import Link from '../components/ui/LangLink';
+import Seo from '../components/Seo';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeft } from 'lucide-react';
 import AnimatedTitle from '../components/ui/AnimatedTitle';
@@ -57,10 +58,7 @@ export default function BlogPost() {
 
     return (
         <main className={classes.page}>
-            <Helmet>
-                <title>{t(`blogPage.posts.p${postIndex}Title`)} | WebCom</title>
-                <meta name="description" content={t(`blogPage.posts.p${postIndex}Desc`)} />
-            </Helmet>
+            <Seo title={`${t(`blogPage.posts.p${postIndex}Title`)} | WebCom`} description={t(`blogPage.posts.p${postIndex}Desc`)} />
 
             <div className={classes.progress} aria-hidden="true"><div ref={barRef} className={classes.progressBar} /></div>
 

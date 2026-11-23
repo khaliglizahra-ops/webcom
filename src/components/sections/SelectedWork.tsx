@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from '../ui/LangLink';
 import AnimatedTitle from '../ui/AnimatedTitle';
 import { projects } from '../../data/projects';
 import classes from './SelectedWork.module.css';

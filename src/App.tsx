@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
@@ -15,6 +16,7 @@ import WorkPage from './pages/Work';
 import ScrollToTop from './components/ui/ScrollToTop';
 import useReveal from './hooks/useReveal';
 import SmoothScroll from './components/ui/SmoothScroll';
+import LangSync from './components/ui/LangSync';
 
 // scroll-reveal for [data-reveal] elements; must live inside the router
 function RevealOnScroll() {
@@ -34,23 +36,26 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
 function App() {
   return (
     <BrowserRouter>
+      <LangSync />
       <SmoothScroll />
       <ScrollToTop />
       <RevealOnScroll />
       <div className="app-reveal-instant">
         <Routes>
-          <Route path="/" element={<Layout><Home /></Layout>} />
-          <Route path="/work" element={<Layout><WorkPage /></Layout>} />
-          <Route path="/services" element={<Layout><Services /></Layout>} />
-
-          <Route path="/about" element={<Layout><About /></Layout>} />
-          <Route path="/process" element={<Layout><Process /></Layout>} />
-          <Route path="/blog" element={<Layout><Blog /></Layout>} />
-          <Route path="/blog/:id" element={<Layout><BlogPost /></Layout>} />
-          <Route path="/contact" element={<Layout><Contact /></Layout>} />
-
-          {/* Strategy Call landing page has no Header/Footer as per requirements */}
-          <Route path="/strategy-call" element={<StrategyCall />} />
+          {['', '/en', '/az'].map(p => (
+            <Fragment key={p || 'tr'}>
+              <Route path={p || '/'} element={<Layout><Home /></Layout>} />
+              <Route path={`${p}/work`} element={<Layout><WorkPage /></Layout>} />
+              <Route path={`${p}/services`} element={<Layout><Services /></Layout>} />
+              <Route path={`${p}/about`} element={<Layout><About /></Layout>} />
+              <Route path={`${p}/process`} element={<Layout><Process /></Layout>} />
+              <Route path={`${p}/blog`} element={<Layout><Blog /></Layout>} />
+              <Route path={`${p}/blog/:id`} element={<Layout><BlogPost /></Layout>} />
+              <Route path={`${p}/contact`} element={<Layout><Contact /></Layout>} />
+              {/* the quote page has no header or footer */}
+              <Route path={`${p}/strategy-call`} element={<StrategyCall />} />
+            </Fragment>
+          ))}
         </Routes>
       </div>
     </BrowserRouter>

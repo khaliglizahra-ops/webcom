@@ -27,6 +27,8 @@ jobs:
       - run: npm run build
       # single-page app: unknown paths (e.g. /services on refresh) load the app
       - run: cp dist/index.html dist/404.html
+      # static HTML for every page in every language (SEO, link previews)
+      - run: node scripts/prerender.mjs
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

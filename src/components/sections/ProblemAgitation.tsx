@@ -1,6 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import Link from '../ui/LangLink';
 import { photo } from '../../data/photos';
 import classes from './ProblemAgitation.module.css';
 

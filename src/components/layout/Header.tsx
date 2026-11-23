@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { localize, stripLang } from '../../i18n/lang';
+import Link from '../ui/LangLink';
 import { useTranslation } from 'react-i18next';
 import { Globe, ChevronDown, Menu, X } from 'lucide-react';
 import classes from './Header.module.css';
@@ -7,6 +9,8 @@ import classes from './Header.module.css';
 export default function Header() {
     const { t, i18n } = useTranslation();
     const location = useLocation();
+    const navigate = useNavigate();
+    const basePath = stripLang(location.pathname);
     const [scrolled, setScrolled] = useState(false);
     const [langOpen, setLangOpen] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
@@ -50,9 +54,10 @@ export default function Header() {
         };
     }, [menuOpen]);
 
+    // switching language moves to the same page under that language's URL
     const changeLanguage = (lng: string) => {
-        i18n.changeLanguage(lng);
         setLangOpen(false);
+        navigate(localize(basePath, lng) + location.search + location.hash);
     };
 
     const languages = [
@@ -88,8 +93,8 @@ export default function Header() {
                         <Link
                             key={link.to}
                             to={link.to}
-                            className={`${classes.navLink} ${location.pathname.startsWith(link.to) ? classes.navLinkActive : ''}`}
-                            aria-current={location.pathname.startsWith(link.to) ? 'page' : undefined}
+                            className={`${classes.navLink} ${basePath.startsWith(link.to) ? classes.navLinkActive : ''}`}
+                            aria-current={basePath.startsWith(link.to) ? 'page' : undefined}
                             style={{ '--index': index } as React.CSSProperties}
                         >
                             {link.label}

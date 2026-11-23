@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo';
 import { useTranslation } from 'react-i18next';
 import { Mail, MapPin, CalendarDays, ArrowRight, CheckCircle2 } from 'lucide-react';
 import PageHero from '../components/layout/PageHero';
@@ -42,14 +42,7 @@ export default function Contact() {
 
     return (
         <main>
-            <Helmet>
-                <title>{t('meta.contactTitle')}</title>
-                <meta name="description" content={t('meta.contactDesc')} />
-                <meta property="og:title" content={t('meta.contactTitle')} />
-                <meta property="og:description" content={t('meta.contactDesc')} />
-                <meta property="og:type" content="website" />
-                <meta name="twitter:card" content="summary_large_image" />
-            </Helmet>
+            <Seo title={t('meta.contactTitle')} description={t('meta.contactDesc')} />
 
             <PageHero eyebrow={t('nav.contact')} title={t('contact.title')} subtitle={t('contact.desc')} />
 
