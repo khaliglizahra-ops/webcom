@@ -1,6 +1,6 @@
 // Contact details shown on the site.
-export const WHATSAPP_NUMBER = '905346117866'; // 0534 611 78 66, Türkiye
-export const WHATSAPP_DISPLAY = '0534 611 78 66';
+export const WHATSAPP_NUMBER = '905316117866'; // 0531 611 78 66, Türkiye
+export const WHATSAPP_DISPLAY = '0531 611 78 66';
 
 const GREETING: Record<string, string> = {
     tr: 'Merhaba, web siteniz üzerinden yazıyorum.',
