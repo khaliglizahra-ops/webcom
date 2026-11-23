@@ -16,7 +16,7 @@ import { join, dirname } from 'node:path';
 const ROUTES = ['/', '/services', '/work', '/about', '/process', '/contact', '/strategy-call', '/blog'];
 const LANGS = ['tr', 'en', 'az'];
 // Azerbaijani-only pages
-const EXTRA = ['/az/guides', '/az/guides/sayt-qiymeti', '/az/guides/onlayn-magaza-acmaq', '/az/guides/google-xeritelerde-biznes', '/az/guides/instagram-ve-sayt'];
+const EXTRA = ['/az/services/sayt-sifarisi', '/az/services/onlayn-magaza', '/az/services/seo', '/az/services/reklam', '/az/guides', '/az/guides/sayt-qiymeti', '/az/guides/onlayn-magaza-acmaq', '/az/guides/google-xeritelerde-biznes', '/az/guides/instagram-ve-sayt'];
 const PORT = 4179;
 const DEBUG_PORT = 9333;
 const DIST = 'dist';

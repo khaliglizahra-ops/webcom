@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
 import Link from '../ui/LangLink';
 import AnimatedTitle from '../ui/AnimatedTitle';
+import { azServiceSlugFor } from '../../data/azServices';
 import classes from './ServiceCards.module.css';
 
 /**
@@ -9,7 +10,9 @@ import classes from './ServiceCards.module.css';
  * as a quiet row of links.
  */
 export default function ServiceCards() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    // in Azerbaijani, cards open the dedicated service page when there is one
+    const hrefFor = (k: number) => (i18n.language === 'az' && azServiceSlugFor(k) ? `/services/${azServiceSlugFor(k)}` : '/services');
 
     const cards = [1, 2, 5];
 
@@ -27,7 +30,7 @@ export default function ServiceCards() {
                     {cards.map((k, i) => (
                         <Link
                             key={k}
-                            to="/services"
+                            to={hrefFor(k)}
                             className={classes.card}
                             data-reveal="up"
                             style={{ '--d': `${i * 120}ms` } as React.CSSProperties}
@@ -41,7 +44,7 @@ export default function ServiceCards() {
 
                 <div className={classes.row}>
                     {[3, 4, 6].map((k, i) => (
-                        <Link key={k} to="/services" className={classes.small} data-reveal="up" style={{ '--d': `${i * 100}ms` } as React.CSSProperties}>
+                        <Link key={k} to={hrefFor(k)} className={classes.small} data-reveal="up" style={{ '--d': `${i * 100}ms` } as React.CSSProperties}>
                             <span className={classes.smallTitle}>{t(`servicesMenu.s${k}`)}</span>
                             <span className={classes.smallDesc}>{t(`servicesMenu.d${k}`)}</span>
                         </Link>

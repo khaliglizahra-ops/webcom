@@ -6,10 +6,12 @@ import Button from '../components/ui/Button';
 import Process from '../components/sections/Process';
 import FinalCTA from '../components/sections/FinalCTA';
 import { photo, servicePhotos } from '../data/photos';
+import Link from '../components/ui/LangLink';
+import { azServiceSlugFor } from '../data/azServices';
 import classes from './Services.module.css';
 
 export default function Services() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const keys = ['s1', 's2', 's3', 's4', 's5', 's6'];
 
     return (
@@ -47,6 +49,12 @@ export default function Services() {
                                     <Button to="/strategy-call" variant="outline">
                                         {t('servicesPage.btn')} <ArrowRight size={16} />
                                     </Button>
+                                    {/* Azerbaijani visitors get a dedicated page for the main services */}
+                                    {i18n.language === 'az' && azServiceSlugFor(idx + 1) && (
+                                        <Link to={`/services/${azServiceSlugFor(idx + 1)}`} className={`textLink ${classes.more}`}>
+                                            Ətraflı <ArrowRight size={16} />
+                                        </Link>
+                                    )}
                                 </div>
                             </article>
                         </div>

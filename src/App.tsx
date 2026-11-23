@@ -14,6 +14,7 @@ import BlogPost from './pages/BlogPost';
 import WorkPage from './pages/Work';
 import Guides from './pages/Guides';
 import Guide from './pages/Guide';
+import AzService from './pages/AzService';
 
 import ScrollToTop from './components/ui/ScrollToTop';
 import useReveal from './hooks/useReveal';
@@ -62,6 +63,7 @@ function App() {
           {/* Azerbaijani-only guides */}
           <Route path="/az/guides" element={<Layout><Guides /></Layout>} />
           <Route path="/az/guides/:slug" element={<Layout><Guide /></Layout>} />
+          <Route path="/az/services/:slug" element={<Layout><AzService /></Layout>} />
         </Routes>
       </div>
       <WhatsAppButton />

@@ -70,3 +70,11 @@
     color: var(--brand);
     flex-shrink: 0;
 }
+
+.more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-left: 1.25rem;
+    color: var(--brand);
+}

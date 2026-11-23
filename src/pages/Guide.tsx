@@ -5,6 +5,7 @@ import Link from '../components/ui/LangLink';
 import Button from '../components/ui/Button';
 import FinalCTA from '../components/sections/FinalCTA';
 import { guides, guidesIntro } from '../data/guides';
+import { azServices } from '../data/azServices';
 import { SITE } from '../i18n/lang';
 import classes from './BlogPost.module.css';
 
@@ -91,6 +92,11 @@ export default function Guide() {
                             ))}
                         </>
                     ) : null}
+
+                    <h2>Xidmətlərimiz</h2>
+                    <ul>
+                        {azServices.map(sv => <li key={sv.slug}><Link to={`/services/${sv.slug}`}>{sv.h1}</Link></li>)}
+                    </ul>
 
                     <h2>{guidesIntro.heading}</h2>
                     <ul>
