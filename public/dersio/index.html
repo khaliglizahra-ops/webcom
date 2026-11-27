@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dersio — Yoxlanılmış müəllimlər. İlk dərs pulsuz.</title>
+<meta name="description" content="DİM, məktəb fənləri, universitet dərsləri və IELTS üçün yoxlanılmış müəllimlər. Onlayn və əyani. İlk dərs pulsuz, pul geri zəmanəti.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <a href="#" class="logo" aria-label="Dersio ana səhifə">
+      <img class="logo-img" src="img/logo.svg" alt="Dersio" width="101" height="30">
+    </a>
+    <nav class="main" aria-label="Əsas menyu">
+      <a href="#kimler">Kim üçün</a>
+
+      <a href="#paketler">Paketlər</a>
+      <a href="#sinaq">Pulsuz sınaq</a>
+      <a href="#nece">Necə işləyir</a>
+      <a href="#muellim-ol">Müəllim ol</a>
+      <a href="#faq">Suallar</a>
+    </nav>
+    <div style="display:flex;gap:10px;align-items:center">
+
+      <a href="#qeydiyyat" class="btn btn-primary">İlk dərs pulsuz</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO + lead form -->
+  <section class="hero" id="qeydiyyat">
+    <div class="hero-bg" aria-hidden="true">
+      <svg class="steps-line" viewBox="0 0 1200 400" preserveAspectRatio="none"><path d="M0 360 H220 V290 H440 V220 H660 V150 H880 V80 H1200"/></svg>
+    </div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1>Doğru müəllimi tap.<br><span class="hl">İlk dərs pulsuzdur.</span></h1>
+        <p class="lead">DİM, məktəb fənləri, universitet dərsləri və IELTS üçün yoxlanılmış müəllimlər və ən yaxşı tələbələr. Formu doldur, koordinatorumuz elə həmin gün zəng edib uyğun müəllimi tapsın.</p>
+        <a href="#sinaq" style="font-weight:600">və ya pulsuz 600bal sınağına yazıl →</a>
+        <figure class="hero-photo">
+          <img src="img/hero-parent-child.jpg" alt="Valideyn və övladı birlikdə dərs edir" loading="eager" width="1100" height="620">
+        </figure>
+      </div>
+
+      <form class="card form-card" id="lead-form" novalidate>
+        <h3>Pulsuz tanışlıq dərsi</h3>
+        <div class="form-grid">
+          <div class="f"><label for="l-name">Adınız</label><input id="l-name" name="Ad" required autocomplete="name"></div>
+          <div class="f"><label for="l-phone">Telefon / WhatsApp</label><input id="l-phone" name="Telefon" type="tel" required placeholder="+994 50 000 00 00" autocomplete="tel"></div>
+          <div class="f"><label for="l-who">Kim üçün?</label>
+            <select id="l-who" name="Kim üçün"><option>Övladım üçün</option><option>Özüm üçün (tələbə)</option><option>Özüm üçün (böyük)</option></select></div>
+          <div class="f"><label for="l-grade">Sinif / kurs</label>
+            <select id="l-grade" name="Sinif"><option>11-ci sinif</option><option>10-cu sinif</option><option>9-cu sinif</option><option>5–8-ci sinif</option><option>1–4-cü sinif</option><option>Universitet</option><option>Digər</option></select></div>
+          <div class="f"><label for="l-subject">Fənn</label>
+            <select id="l-subject" name="Fənn"><option>Riyaziyyat</option><option>Azərbaycan dili</option><option>İngilis dili</option><option>Rus dili</option><option>Fizika</option><option>Kimya</option><option>Biologiya</option><option>Tarix</option><option>Proqramlaşdırma</option><option>Digər</option></select></div>
+          <div class="f"><label for="l-goal">Məqsəd</label>
+            <select id="l-goal" name="Məqsəd"><option>DİM qəbul imtahanı</option><option>Buraxılış imtahanı</option><option>Məktəb dərsləri</option><option>Universitet fənni</option><option>IELTS</option><option>Digər</option></select></div>
+          <div class="f"><label for="l-format">Format</label>
+            <select id="l-format" name="Format"><option>Onlayn</option><option>Əyani (evdə)</option><option>Fərq etmir</option></select></div>
+          <div class="f"><label for="l-area">Rayon (əyani üçün)</label>
+            <select id="l-area" name="Rayon"><option>—</option><option>Nəsimi</option><option>Yasamal</option><option>Nərimanov</option><option>Xətai</option><option>Səbail</option><option>Binəqədi</option><option>Nizami</option><option>Xəzər</option><option>Sabunçu</option><option>Suraxanı</option><option>Qaradağ</option><option>Pirallahı</option><option>Sumqayıt</option><option>Digər şəhər</option></select></div>
+          <div class="f full"><label for="l-note">Qeyd (istəyə görə)</label><textarea id="l-note" name="Qeyd" placeholder="Məsələn: hazırda 420 bal, 600-ə çatmaq istəyirik"></textarea></div>
+          <label class="check full"><input type="checkbox" id="l-consent" required> Mənimlə telefon və ya WhatsApp ilə əlaqə saxlanılmasına razıyam.</label>
+        </div>
+        <p class="error" hidden></p>
+        <button class="btn btn-primary" type="submit">Pulsuz dərsə yazıl</button>
+        <p class="form-note">Koordinatorumuz iş günü ərzində zəng edir.</p>
+        <div class="form-result" role="status"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- SUAL-CAVAB: latest questions and answers, public -->
+
+
+  <section style="padding-top:0">
+    <div class="wrap features">
+      <div class="feature"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#17784E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg><div><strong>5 addımlı yoxlama</strong><span>Şəxsiyyət, diplom və ya DİM balı, fənn testi, nümayiş dərsi, təlim.</span></div></div>
+      <div class="feature"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#17784E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><div><strong>Pul geri zəmanəti</strong><span>İlk dərsdən razı qalmasan, pulun qaytarılır və ya müəllimi pulsuz dəyişirik.</span></div></div>
+      <div class="feature"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#17784E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg><div><strong>Aylıq irəliləyiş hesabatı</strong><span>Valideyn hər ay balları və zəif mövzuları WhatsApp-da görür.</span></div></div>
+    </div>
+  </section>
+
+  <!-- AUDIENCES -->
+  <section id="kimler" style="padding-top:8px">
+    <div class="wrap stack">
+      <h2>Kim üçündür?</h2>
+      <div class="grid3">
+        <a class="card aud" href="#qeydiyyat"><img src="img/school-student.jpg" alt="Sinifdə yazı yazan şagird" loading="lazy"><div class="aud-body"><span class="eyebrow">Məktəblilər</span><h3>DİM və məktəb fənləri</h3><p class="muted">Buraxılış və qəbul imtahanlarına hazırlıq. 600+ bal toplamış tələbələr və təcrübəli müəllimlər.</p></div></a>
+        <a class="card aud" href="#qeydiyyat"><img src="img/university-student.jpg" alt="Kitabxanada oxuyan tələbə" loading="lazy"><div class="aud-body"><span class="eyebrow">Tələbələr</span><h3>Universitet fənləri</h3><p class="muted">Kollokvium və sessiya dövründə öz fənnini keçmiş yuxarı kurs tələbəsindən kömək al.</p></div></a>
+        <a class="card aud" href="#qeydiyyat"><img src="img/adult-learner.jpg" alt="Noutbukla onlayn dərs keçən böyük" loading="lazy"><div class="aud-body"><span class="eyebrow">Böyüklər</span><h3>IELTS, dillər, bacarıqlar</h3><p class="muted">IELTS, ingilis və rus dili, proqramlaşdırma. İşdən sonra onlayn dərslər.</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="band" id="paketler">
+    <div class="wrap stack">
+      <div class="stack" style="gap:8px"><h2>Paketlər</h2><p class="muted">Aylıq paket bir fənn üzrə ödənilir. Pul dərs keçirilənə qədər saxlanılır.</p></div>
+      <div class="grid3" id="packages"></div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="nece">
+    <div class="wrap how-grid">
+      <figure class="how-photo"><img src="img/online-lesson.jpg" alt="Noutbukla onlayn dərsdə olan uşaq" loading="lazy"></figure>
+      <div class="stack">
+      <h2>3 addımda başla</h2>
+      <div class="steps-col">
+        <div class="step"><div class="step-num">1</div><strong>Formu doldur</strong><p class="muted">Fənni, məqsədi və formatı seç. Koordinatorumuz həmin gün zəng edir.</p></div>
+        <div class="step"><div class="step-num">2</div><strong>Pulsuz tanışlıq dərsi</strong><p class="muted">Sənə uyğun yoxlanılmış müəllimlə 15 dəqiqəlik pulsuz dərs.</p></div>
+        <div class="step"><div class="step-num">3</div><strong>Paketi seç və başla</strong><p class="muted">Dərslər təqvimə düşür, hər ay irəliləyiş hesabatı gəlir. Razı qalmasan, pulun geri.</p></div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOCK EXAM -->
+  <section id="sinaq" style="padding-top:0">
+    <div class="wrap">
+      <div class="exam">
+        <div class="stack" style="gap:14px">
+          <p class="eyebrow-light">Hər ay · pulsuz · onlayn</p>
+          <h2>Dersio 600bal sınağı</h2>
+          <p>Balını, digər iştirakçılar arasında yerini və zəif mövzularını gör. Sonra həmin fənn üzrə ən uyğun müəllimlə pulsuz dərs.</p>
+          <p style="font-size:15px">Növbəti sınaq: <strong id="exam-date" style="color:#fff">Tarix tezliklə</strong></p>
+          <p style="font-size:15px">Riyaziyyat · Azərbaycan dili · İngilis dili</p>
+          <a class="btn btn-lime" href="exam.html" style="align-self:flex-start">Nümunə sınağı indi yaz →</a>
+        </div>
+        <form class="card form-card" id="exam-form" novalidate>
+          <h3>Pulsuz qeydiyyat</h3>
+          <div class="f"><label for="e-name">Şagirdin adı</label><input id="e-name" name="Şagird" required></div>
+          <div class="f"><label for="e-phone">Valideynin telefonu</label><input id="e-phone" name="Valideyn telefonu" type="tel" required placeholder="+994 50 000 00 00"></div>
+          <div class="f"><label for="e-grade">Sinif</label><select id="e-grade" name="Sinif"><option>11-ci sinif</option><option>10-cu sinif</option><option>9-cu sinif</option><option>Məzun</option></select></div>
+          <div class="f"><label for="e-group">Qrup</label><select id="e-group" name="Qrup"><option>I qrup</option><option>II qrup</option><option>III qrup</option><option>IV qrup</option><option>V qrup</option><option>Bilmirəm</option></select></div>
+          <label class="check"><input type="checkbox" required> Nəticələrin və təkliflərin telefona göndərilməsinə razıyam.</label>
+          <p class="error" hidden></p>
+          <button class="btn btn-primary" type="submit">Sınağa yazıl</button>
+          <div class="form-result" role="status"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- BECOME A TUTOR -->
+  <section class="band" id="muellim-ol">
+    <div class="wrap tutor-grid">
+      <div class="stack" style="gap:18px">
+        <img class="tutor-photo" src="img/tutor-whiteboard.jpg" alt="Lövhə qarşısında dərs keçən gülümsəyən müəllim" loading="lazy">
+        <h2>Dersio ilə dərs ver</h2>
+        <p class="muted" style="font-size:17px">Öz tələbələrini gətir: onlar üçün <strong style="color:var(--ink)">0% komissiya</strong>. Ödənişlər hər həftə kartına, yeni tələbələr bizdən.</p>
+        <div class="card" style="padding:18px;background:var(--bg)"><strong>Nümunə:</strong> <span class="muted">ayda 8 dərslik DİM paketi 160 ₼. Bizim göndərdiyimiz hər tələbə üçün sən 120 ₼ alırsan.</span></div>
+        <strong>Yoxlama 5 addımdır:</strong>
+        <ol class="vsteps">
+          <li><b>1</b><span>Şəxsiyyət vəsiqəsi və selfi</span></li>
+          <li><b>2</b><span>Diplom, sertifikat və ya DİM bal hesabatı</span></li>
+          <li><b>3</b><span>Qısa fənn testi</span></li>
+          <li><b>4</b><span>15 dəqiqəlik nümayiş dərsi</span></li>
+          <li><b>5</b><span>Qısa təlim və davranış qaydaları</span></li>
+        </ol>
+      </div>
+      <form class="card form-card" id="tutor-form" novalidate>
+        <h3>Müəllim müraciəti</h3>
+        <div class="form-grid">
+          <div class="f"><label for="t-name">Ad, soyad</label><input id="t-name" name="Ad soyad" required></div>
+          <div class="f"><label for="t-phone">Telefon / WhatsApp</label><input id="t-phone" name="Telefon" type="tel" required placeholder="+994 50 000 00 00"></div>
+          <div class="f"><label for="t-type">Kimsiniz?</label><select id="t-type" name="Status"><option>Universitet tələbəsi</option><option>Məktəb müəllimi</option><option>Hazırlıq müəllimi</option><option>Dil müəllimi</option><option>Digər mütəxəssis</option></select></div>
+          <div class="f"><label for="t-uni">Universitet / iş yeri</label><input id="t-uni" name="Universitet/iş yeri" placeholder="ADA, BDU, UNEC, BHOS…"></div>
+          <div class="f full"><label for="t-subjects">Fənlər</label><input id="t-subjects" name="Fənlər" required placeholder="Riyaziyyat, fizika…"></div>
+          <div class="f"><label for="t-score">DİM balı və ya təcrübə</label><input id="t-score" name="Bal/təcrübə" placeholder="Məsələn: 640 bal / 8 il"></div>
+          <div class="f"><label for="t-students">Hazırkı tələbə sayı</label><input id="t-students" name="Hazırkı tələbələr" type="number" min="0" placeholder="0"></div>
+          <div class="f full"><label for="t-format">Format</label><select id="t-format" name="Format"><option>Onlayn</option><option>Əyani</option><option>Hər ikisi</option></select></div>
+          <label class="check full"><input type="checkbox" required> Məlumatlarımın yoxlama üçün istifadəsinə razıyam.</label>
+        </div>
+        <p class="error" hidden></p>
+        <button class="btn btn-primary" type="submit">Müraciət et</button>
+        <div class="form-result" role="status"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap stack" style="max-width:820px">
+      <h2>Tez-tez verilən suallar</h2>
+      <div>
+        <details><summary>İlk dərs həqiqətən pulsuzdur?</summary><p>Bəli. 15 dəqiqəlik tanışlıq dərsi pulsuzdur və heç bir öhdəlik yaratmır. Müəllim uyğun gəlməsə, başqasını təklif edirik.</p></details>
+        <details><summary>Müəllimləri necə yoxlayırsınız?</summary><p>Hər müəllim 5 addımdan keçir: şəxsiyyət yoxlaması, diplom və ya DİM balı, fənn testi, qiymətləndirilən nümayiş dərsi və qısa təlim. Uşaqlarla əyani dərslər üçün davranış qaydaları imzalanır.</p></details>
+        <details><summary>Pul geri zəmanəti necə işləyir?</summary><p>Paketin ilk dərsindən razı qalmasanız, istifadə olunmamış dərslərin pulunu qaytarırıq və ya müəllimi pulsuz dəyişirik.</p></details>
+        <details><summary>Necə ödəyirəm?</summary><p>Azərbaycan bank kartı ilə, manatla, ödəniş linki vasitəsilə. Pul dərs keçirilənə qədər Dersio-da saxlanılır.</p></details>
+        <details><summary>Əyani dərslərdə valideyn iştirak edə bilər?</summary><p>Bəli. Ünvanı valideyn təsdiqləyir və istəsə dərsdə iştirak edə bilər.</p></details>
+        <details><summary>Dərsi ləğv etmək və ya köçürmək olar?</summary><p>Dərsdən 24 saat əvvələ qədər pulsuz.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div style="max-width:320px;display:flex;flex-direction:column;gap:8px"><img class="logo-img" src="img/logo-white.svg" alt="Dersio" width="101" height="30"><span>Azərbaycanda yoxlanılmış müəllimlər. Onlayn və əyani dərslər.</span></div>
+    <div style="display:flex;flex-direction:column;gap:8px"><strong style="color:#fff">Ailələr üçün</strong><a href="#qeydiyyat">Pulsuz dərs</a><a href="#sinaq">600bal sınağı</a><a href="#faq">Zəmanət</a></div>
+    <div style="display:flex;flex-direction:column;gap:8px"><strong style="color:#fff">Müəllimlər üçün</strong><a href="#muellim-ol">Müraciət et</a></div>
+    <div style="display:flex;flex-direction:column;gap:8px" id="social"><strong style="color:#fff">Bizi izlə</strong><a id="ig-link" href="#">Instagram</a><a id="tg-link" href="#">Telegram</a></div>
+  </div>
+  <div class="wrap" style="margin-top:28px;font-size:13px">© <span id="year"></span> Dersio</div>
+</footer>
+
+<div class="mobile-bar"><a href="#qeydiyyat" class="btn btn-primary">İlk dərs pulsuz</a></div>
+<a class="wa-btn" id="wa-btn" href="#qeydiyyat" aria-label="WhatsApp ilə yaz">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

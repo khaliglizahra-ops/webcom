@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dersio 600bal sınağı — pulsuz onlayn sınaq</title>
+<meta name="description" content="Pulsuz onlayn DİM sınağı: balını və zəif mövzularını gör, sonra uyğun müəllimlə pulsuz dərs al.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="exam-page">
+
+<header>
+  <div class="wrap header-row">
+    <a href="index.html" class="logo" aria-label="Dersio ana səhifə">
+      <img class="logo-img" src="img/logo.svg" alt="Dersio" width="101" height="30">
+    </a>
+    <div style="flex:1"></div>
+    <div class="timer" id="timer" hidden aria-live="off">45:00</div>
+  </div>
+</header>
+
+<main class="wrap exam-main">
+
+  <!-- START -->
+  <section id="view-start" class="exam-view">
+    <div class="exam-intro">
+      <div class="stack" style="gap:16px">
+        <p class="eyebrow">Pulsuz · onlayn · <span id="ex-duration">45</span> dəqiqə</p>
+        <h1 style="font-size:clamp(34px,5vw,48px)">600bal sınağı</h1>
+        <p class="muted" style="font-size:18px">Balını və zəif mövzularını gör. Sonra həmin fənn üzrə uyğun müəllimlə pulsuz dərs al.</p>
+        <ul class="vsteps">
+          <li><b>1</b><span><span id="ex-count">24</span> sual: <span id="ex-subjects"></span></span></li>
+          <li><b>2</b><span>Vaxt bitəndə sınaq avtomatik tamamlanır</span></li>
+          <li><b>3</b><span>Səhifə bağlansa, cavabların yadda qalır</span></li>
+        </ul>
+        <p class="form-note" id="ex-edition"></p>
+      </div>
+      <form class="card form-card" id="start-form" novalidate>
+        <h3>Başlamaq üçün</h3>
+        <div class="f"><label for="s-name">Şagirdin adı, soyadı</label><input id="s-name" required autocomplete="name"></div>
+        <div class="f"><label for="s-phone">Valideynin telefonu</label><input id="s-phone" type="tel" required placeholder="+994 50 000 00 00"></div>
+        <div class="form-grid">
+          <div class="f"><label for="s-grade">Sinif</label><select id="s-grade"><option>11-ci sinif</option><option>10-cu sinif</option><option>9-cu sinif</option><option>Məzun</option></select></div>
+          <div class="f"><label for="s-group">Qrup</label><select id="s-group"><option>I qrup</option><option>II qrup</option><option>III qrup</option><option>IV qrup</option><option>V qrup</option><option>Bilmirəm</option></select></div>
+        </div>
+        <label class="check"><input type="checkbox" id="s-consent" required> Nəticələrin və təkliflərin telefona göndərilməsinə razıyam.</label>
+        <p class="error" hidden></p>
+        <button class="btn btn-primary" type="submit">Sınağa başla</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- CLOSED -->
+  <section id="view-closed" class="exam-view" hidden>
+    <div class="card" style="padding:32px;max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:14px">
+      <h2>Sınaq hələ açılmayıb</h2>
+      <p class="muted">Növbəti sınaq: <strong id="closed-date">tarix tezliklə</strong>. Qeydiyyatdan keç, sınaq günü sənə xatırladaq.</p>
+      <a class="btn btn-primary" href="index.html#sinaq">Pulsuz qeydiyyat</a>
+    </div>
+  </section>
+
+  <!-- TEST -->
+  <section id="view-test" class="exam-view" hidden>
+    <div class="test-grid">
+      <div class="card q-card">
+        <div class="q-meta"><span class="chip" id="q-subject"></span><span class="muted" id="q-pos"></span></div>
+        <div class="progress"><div id="q-progress"></div></div>
+        <h2 class="q-text" id="q-text"></h2>
+        <div class="options" id="q-options" role="radiogroup" aria-labelledby="q-text"></div>
+        <div class="q-nav">
+          <button class="btn btn-ghost" id="btn-prev" type="button">← Əvvəlki</button>
+          <button class="btn btn-primary" id="btn-next" type="button">Növbəti →</button>
+        </div>
+      </div>
+      <aside class="card palette-card">
+        <strong>Suallar</strong>
+        <div id="palette"></div>
+        <p class="form-note"><span class="dot done"></span> cavablanıb &nbsp; <span class="dot"></span> boş</p>
+        <button class="btn btn-lime" id="btn-finish" type="button">Sınağı bitir</button>
+      </aside>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="view-result" class="exam-view" hidden>
+    <div class="stack">
+      <div class="result-hero">
+        <div class="stack" style="gap:8px">
+          <p class="eyebrow-light">Nəticə</p>
+          <h1 style="font-size:clamp(30px,4vw,44px)" id="r-title"></h1>
+          <p style="color:var(--mint)" id="r-sub"></p>
+        </div>
+        <div class="score-box">
+          <div class="muted-light">Təxmini bal</div>
+          <div class="score" id="r-score"></div>
+          <div class="muted-light" id="r-max"></div>
+        </div>
+      </div>
+
+      <div class="grid3" id="r-subjects"></div>
+
+      <div class="tutor-grid">
+        <div class="card" style="padding:24px;display:flex;flex-direction:column;gap:12px">
+          <h3>Zəif mövzular</h3>
+          <ul class="weak-list" id="r-weak"></ul>
+        </div>
+        <div class="card" style="padding:24px;display:flex;flex-direction:column;gap:12px;background:var(--mint);border-color:var(--mint)">
+          <h3 id="r-offer-title"></h3>
+          <p class="muted" id="r-offer-text"></p>
+          <a class="btn btn-primary" id="r-offer-btn" href="index.html#qeydiyyat">Pulsuz dərsə yazıl</a>
+          <button class="btn btn-ghost" id="r-send" type="button">Nəticəni koordinatora göndər</button>
+          <div class="form-result" id="r-send-result" role="status"></div>
+        </div>
+      </div>
+
+      <details class="card" style="padding:8px 24px">
+        <summary>Cavablara bax</summary>
+        <ol class="review" id="r-review"></ol>
+      </details>
+
+      <p class="form-note">Bal sadələşdirilmiş hesablamadır (düzgün cavabların payı × <span class="r-maxnum"></span>) və rəsmi DİM balı deyil. İştirakçılar arasında yerini koordinatorumuz sınaq günündən sonra göndərəcək.</p>
+      <div><button class="btn btn-ghost" id="r-restart" type="button">Yenidən başla</button></div>
+    </div>
+  </section>
+</main>
+
+<script src="config.js"></script>
+<script src="questions.js"></script>
+<script src="exam.js"></script>
+</body>
+</html>
