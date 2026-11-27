@@ -2,7 +2,7 @@
 window.DERSIO_CONFIG = {
   // Coordinator's WhatsApp number, digits only with country code, e.g. "994501234567".
   // While empty, forms show the message to copy instead of opening WhatsApp.
-  whatsappNumber: "",
+  whatsappNumber: "905316117866",
 
   // Next 600bal mock exam. Leave empty to show "Tarix tezliklə".
   nextExamDate: "",      // e.g. "14 dekabr 2026"
